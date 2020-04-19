@@ -10,6 +10,13 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
+    <!--  DATE PICKER PLUGIN 1-->
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+        
+
+    <!--  -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
@@ -18,6 +25,10 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+    
+
+
 </head>
 <body>
     <div id="app">
@@ -76,5 +87,18 @@
             @yield('content')
         </main>
     </div>
+   
+
+<!-- jquery datetime picker-->
+<script type="text/javascript">
+    
+ $(document).ready(function()
+ {
+   
+     $("#dtBox").DateTimePicker();
+   
+ });
+</script>
+      
 </body>
 </html>

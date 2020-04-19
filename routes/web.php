@@ -20,11 +20,33 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
 Route::post('/rooms', 'RoomController@store');
+
 Route::post('/clubs', 'UserController@storeClub');
+
 Route::post('/mods', 'UserController@storeMod');
+
 Route::get('/Clublogin', 'UserController@ClubLogin');
+
+Route::get('/ClubHome', 'UserController@ClubHome');
+
 Route::get('/rooms', 'RoomController@showEmptyRooms');
+
+Route::get('/reservations/create', 'ReservationController@create');
+
 Route::post('/reservation/{date}/{id_room}/store', 'ReservationController@store');
+
 Route::get('/reservations/myReservations', 'ReservationController@indexMyResevations');
 // Route::get('/rooms', 'RoomController@index');
+
+// Route::get('/login', function(){
+
+// 	if (Auth::check()) {
+// 		return redirect('/ClubHome');	
+// 	} else {
+// 		return view('/auth/login');
+// 	}
+	
+// 	}
+// );

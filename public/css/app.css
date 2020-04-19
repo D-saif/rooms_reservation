@@ -1,4 +1,11 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
+
+
+/*jquery datetime picker*/
+@import "https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.css";
+@import "https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css";
+
+
+
 
 /*!
  * Bootstrap v4.4.1 (https://getbootstrap.com/)

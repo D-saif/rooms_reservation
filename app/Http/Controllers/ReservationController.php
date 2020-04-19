@@ -8,6 +8,11 @@ use DB;
 use App\reservation;
 class ReservationController extends Controller
 {
+    function create(){
+
+      return view('createReservation');
+    }
+
     function store($date){
       //dd('store is here');
       //dd(Auth::check());
@@ -36,6 +41,6 @@ class ReservationController extends Controller
       //dd("indexMyreservations is here");
       $id_user = Auth::id();
       $reservations = reservation::where('id_user',$id_user)->get();
-      return view('ClubReservations')->with('reservations',$reservations);
+      return $reservations;
     }
 }

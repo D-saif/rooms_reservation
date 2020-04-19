@@ -7,6 +7,8 @@ use App\User;
 use Illuminate\Support\Facades\Hash;
 use Auth;
 use DB;
+use App\reservation;
+use Controllers\ReservationController;
 class UserController extends Controller
 {
   function storeClub()
@@ -62,18 +64,31 @@ class UserController extends Controller
   public function ClubLogin(Request $request)
   {
     //dd('club login is here');
-    //$id_user = DB::table('users')->select('id_role')->get();
-    //dd( $id_user );
-    $credentials = $request->only('email', 'password');
-     if (Auth::attempt($credentials)) {
-         return view('/ClubHome');
+    //dd('test');
+    if (Auth::check()) {
+          //dd('test');
+          return redirect('/ClubHome');
+    
+    } else {
 
-     }
-     /*
-  $email = $request->input('email');
-  $password =$request->input('password');
-  echo ($email." ".$password);
-  */
+          $credentials = $request->only('email', 'password');
+
+          if (Auth::attempt($credentials)) {
+               return redirect('/ClubHome');
+
+          }else{
+            
+               return redirect("/login");
+          }
+    }
+    
+  }
+
+
+  function ClubHome(){
+    $id_user = Auth::id();
+    $reservations = reservation::where('id_user',$id_user)->get();
+    return view('ClubHome')->with('reservations',$reservations);
   }
 
 }
