@@ -35,9 +35,11 @@ Route::get('/rooms', 'RoomController@showEmptyRooms');
 
 Route::get('/reservations/create', 'ReservationController@create');
 
-Route::post('/reservation/{date}/{id_room}/store', 'ReservationController@store');
+Route::post('/reservations/{dateStart}/{dateFinish}/{id_room}/store', 'ReservationController@store');
 
 Route::get('/reservations/myReservations', 'ReservationController@indexMyResevations');
+
+
 // Route::get('/rooms', 'RoomController@index');
 
 // Route::get('/login', function(){

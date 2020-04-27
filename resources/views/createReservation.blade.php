@@ -13,7 +13,7 @@
 
 	                <div class="card-body" >
 
-	                    <form method="POST" action="reservations/store">
+	                    <form method="get" action="/rooms">
 	                        @csrf
 	                       	<!-- DATETIME PICKER -->
 	                       		
@@ -21,15 +21,17 @@
 	                       		
 	                       			
 	                       			<div class="form-group row">
-	                       			    <label for="name" class="col-md-4 col-form-label text-md-right">periode de l'evennement</label>
-
+	                       			    <label for="name" class="col-md-4 col-form-label text-md-right">date de debut de l'evennement</label>
 	                       			    <div class="col-md-6">
-	                       			        <input type="text" name="datetimes" class="form-control" />
-
-	                       			        <!--  -->
+	                       			        <input class="form-control" type="text" name="dateStart" />
 	                       			    </div>
 	                       			</div>
-	                       			
+	                       			<div class="form-group row">
+	                       			    <label for="name" class="col-md-4 col-form-label text-md-right">date de fin de l'evennement</label>
+	                       			    <div class="col-md-6">
+	                       			        <input class="form-control" type="text" name="dateFinish" />
+	                       			    </div>
+	                       			</div>
 	                       		
 	                       		
 
@@ -71,16 +73,52 @@
 
 
 
+<!-- <script>
+$(function() {
+  $('input[name="daterange"]').daterangepicker({
+    opens: 'left',
+    timePicker: true,
+    timePicker24Hour: true,
+    locale: {
+    	format: 'YYYY-MM-DD hh:mm'
+    }
+  },function(start, end, label) {
+    console.log("A new date selection was made: " + start.format('YYYY-MM-DD hh:mm') + ' to ' + end.format('YYYY-MM-DD hh:mm'));
+  });
+});
+</script> -->
+
 <script>
 $(function() {
-  $('input[name="datetimes"]').daterangepicker({
+  $('input[name="dateStart"]').daterangepicker({
+    singleDatePicker: true,
+    showDropdowns: true,
+    minYear: 1901,
+    maxYear: parseInt(moment().format('YYYY'),10),
     timePicker: true,
-    startDate: moment().startOf('hour'),
-    endDate: moment().startOf('hour').add(32, 'hour'),
+    timePicker24Hour: true,
     locale: {
-      format: 'M/DD hh:mm A'
+    	format: 'YYYY-MM-DD hh:mm'
     }
-  });
+  }
+  );
+});
+</script>
+
+<script>
+$(function() {
+  $('input[name="dateFinish"]').daterangepicker({
+    singleDatePicker: true,
+    showDropdowns: true,
+    minYear: 1901,
+    maxYear: parseInt(moment().format('YYYY'),10),
+    timePicker: true,
+    timePicker24Hour: true,
+    locale: {
+    	format: 'YYYY-MM-DD hh:mm'
+    }
+  }
+  );
 });
 </script>
 @endsection

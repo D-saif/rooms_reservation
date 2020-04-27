@@ -8,7 +8,7 @@
 
     // //  $date=$_POST["reservation"];
     ?>
-    <h1> bonjour {{$Club}} !!</h1>
+    <h1> bonjour {{$Club}} {{$msg ?? ""}}!!</h1>
     <h6 color="red"> {{ $msg ?? "" }} </h6>
     <!--<h5>entrer la date de reservation:</h5>
 

@@ -28,33 +28,48 @@ class RoomController extends Controller
 
     function showEmptyRooms(Request $req1)
     {
-      //dd('hello showEmptyRooms is here');
+    
 
-    $date = $req1->input('reservation');
-      //dd($date);
-    $rooms = DB::table('rooms')->get();
+    $dateStart = $req1->input('dateStart');
+    $dateFinish = $req1->input('dateFinish');
 
-    $req2 = DB::table('reservations')
+    //get all rooms
+    $rooms = DB::table('rooms')->select('id_room')->get();
+      //transform each item into string (id_room)
+      $rooms->transform(function ($item, $key) {
+          return $item->id_room;
+      });
 
-                ->where('date_time_start','<=',$date)
-                ->where('date_time_finish','>=',$date)
+
+    //get all reserved rooms
+    $reservedRooms = DB::table('reservations')
+
+                ->where('date_time_start','<=',$dateStart)
+                ->where('date_time_finish','>=',$dateFinish)
                 ->where('is_approved',1)
                 ->select('id_room')
                 ->get();
-    //dd($req2);
-  //$available_rooms = DB::table('rooms') ->whereNotIn('id_room',$req2->)->get();
-    //dd($available_rooms);
-      //dd(Auth::check());
-      //return $available_rooms;
-      // foreach ($rooms as $room) {
-      // //dd($available_rooms);
-      // }
-      //return view('showEmptyRooms')->with('date',$date)->with('available_rooms',$available_rooms);
+      //transform each item into string (id_room)
+      $reservedRooms->transform(function ($item, $key) {
+          return $item->id_room;
+      });
 
-      //dd($user);
-      return view('showEmptyRooms')->with('date',$date)->with('available_rooms',$rooms);
+
+      //get all empty rooms (rooms - reserved rooms)
+      $emptyRooms= $rooms->diff($reservedRooms);
+
+      // var_dump($rooms);echo "<br><br><br>";
+      // var_dump($reservedRooms);echo "<br><br><br>";
+      // dd($emptyRooms);
+      //reservationData = array("dateStart"=>$dateStart, "dateFinish"=>$dateFinish,);
+
+      
+      return view('showEmptyRooms')->with('available_rooms',$emptyRooms)
+                                   ->with('dateStart' , $dateStart)
+                                   ->with('dateFinish' , $dateFinish);
 
     }
+
     function index(){
       dd("hello index is here");
     }
