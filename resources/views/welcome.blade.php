@@ -81,18 +81,20 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    BIENVENUE
                 </div>
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
+                    <!-- <a href="https://laravel.com/docs">Docs</a>
                     <a href="https://laracasts.com">Laracasts</a>
                     <a href="https://laravel-news.com">News</a>
                     <a href="https://blog.laravel.com">Blog</a>
                     <a href="https://nova.laravel.com">Nova</a>
                     <a href="https://forge.laravel.com">Forge</a>
                     <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                    <a href="https://github.com/laravel/laravel">GitHub</a> -->
+                    <P>Cette application est un projet developpé par "Arch team" (equipe de HLP dans le club freeways ISI) .Cette application sert a gerer les resservations des salles par les clubs de l'université</P>
+                    <a href="https://github.com/D-saif/rooms_reservation">Vous pouver trouver le projet sur github</a>
                 </div>
             </div>
         </div>
