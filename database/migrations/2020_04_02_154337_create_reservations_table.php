@@ -15,19 +15,21 @@ class CreateReservationsTable extends Migration
     {
         Schema::create('reservations', function (Blueprint $table) {
           $table->increments('id_reservation');
-          $table->integer('id_user');
+          $table->unsignedBigInteger('id_user');
           $table->string('id_room');
           $table->DateTime('date_time_start');
           $table->dateTime('date_time_finish');
           $table->integer('is_approved')->default(0);
           $table->timestamps();
           //should be fixed
-          /*$table->foreign('id_user')
-                ->references('id')->on('users')
+          $table->foreign('id_user')
+                ->references('id')
+                ->on('users')
                 ->onDelete('cascade');
           $table->foreign('id_room')
-                ->references('id_room')->on('rooms')
-                ->onDelete('cascade');*/
+                ->references('id_room')
+                ->on('rooms')
+                ->onDelete('cascade');
         });
     }
 

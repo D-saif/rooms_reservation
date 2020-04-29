@@ -20,13 +20,14 @@ class CreateUsersTable extends Migration
           $table->timestamp('email_verified_at')->nullable();
           $table->string('password');
           //id_role -> 1:superAdmin 2:mod 3:club
-          $table->integer('id_role')->default(1);
+          $table->unsignedBigInteger('id_role');
           $table->rememberToken();
           $table->timestamps();
-          /*
-          $table->foreign('id_role')
-                ->references('id_role')->on('roles')
-                ->onDelete('cascade');*/
+          
+          // $table->foreign('id_role')
+          //       ->references('id_role')
+          //       ->on('roles')
+          //       ->onDelete('cascade');
         });
     }
 
