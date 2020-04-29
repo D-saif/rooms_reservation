@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
           $table->timestamp('email_verified_at')->nullable();
           $table->string('password');
           //id_role -> 1:superAdmin 2:mod 3:club
-          $table->unsignedBigInteger('id_role');
+          $table->unsignedBigInteger('id_role')->default(1);
           $table->rememberToken();
           $table->timestamps();
           

@@ -26,9 +26,9 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                  <button onclick="showForm(0)" class="btn-tertiary" type="button" name="button">add a mod</button>
-                  <button onclick="showForm(1)" class="btn-tertiary" type="button" name="button">add a club</button>
-                  <button onclick="showForm(2)" class="btn-tertiary" type="button" name="button">add a room</button>
+                  <button onclick="showForm(0)" class="btn-tertiary" type="button" name="button">Ajouter un moderateur</button>
+                  <button onclick="showForm(1)" class="btn-tertiary" type="button" name="button">ajouter un club</button>
+                  <button onclick="showForm(2)" class="btn-tertiary" type="button" name="button">Ajouter une salle</button>
                 </div>
 
                 <div class="card-body card-body-costum">
@@ -37,7 +37,7 @@
                         @csrf
                         {{ csrf_field() }}
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nom') }}</label>
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
@@ -51,7 +51,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Addresse E-Mail') }}</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
@@ -65,7 +65,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Mot de passe') }}</label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
@@ -79,7 +79,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirmer le mot de passe') }}</label>
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
@@ -111,7 +111,7 @@
                         @csrf
                         {{ csrf_field() }}
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nom') }}</label>
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
@@ -125,7 +125,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Addresse E-Mail') }}</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
@@ -139,7 +139,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Mot de passe') }}</label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
@@ -153,7 +153,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirmer le mot de passe') }}</label>
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
@@ -187,7 +187,7 @@
                         @csrf
                         {{ csrf_field() }}
                         <div class="form-group row">
-                            <label for="id_room" class="col-md-4 col-form-label text-md-right">{{ __('id_room') }}</label>
+                            <label for="id_room" class="col-md-4 col-form-label text-md-right">{{ __('identifiant du salle') }}</label>
 
                             <div class="col-md-6">
                                 <input type="text" class="form-control @error('id_room') is-invalid @enderror" name="id_room" value="{{ old('id-id_room') }}" required autocomplete="id_room" autofocus>

@@ -93,8 +93,8 @@
                     <a href="https://forge.laravel.com">Forge</a>
                     <a href="https://vapor.laravel.com">Vapor</a>
                     <a href="https://github.com/laravel/laravel">GitHub</a> -->
-                    <P>Cette application est un projet developpé par "Arch team" (equipe de HLP dans le club freeways ISI) .Cette application sert a gerer les resservations des salles par les clubs de l'université</P>
-                    <a href="https://github.com/D-saif/rooms_reservation">Vous pouver trouver le projet sur github</a>
+                    <P>Cette application est un projet developpé par "Arch team" (equipe de HLP dans le club freeways ISI) .Cette application sert a gerer les résérvations des salles par les clubs de l'université</P>
+                    <a href="https://github.com/D-saif/rooms_reservation">Vous pouvez trouver le projet sur github</a>
                 </div>
             </div>
         </div>
