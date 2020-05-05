@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class reservation extends Model
 {
-    //
+     protected $primaryKey = 'id_reservation';
 }

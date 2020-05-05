@@ -91,4 +91,45 @@ class UserController extends Controller
     return view('ClubHome')->with('reservations',$reservations);
   }
 
+
+
+
+public function ModLogin(Request $request)
+  {
+    //dd(Auth::check());
+    //dd('test');
+    if (Auth::check()) {
+          //dd('test');
+          return redirect('/ModHome');
+    
+    } else {
+
+          $credentials = $request->only('email', 'password');
+
+          if (Auth::attempt($credentials)) {
+               return redirect('/ModHome');
+
+          }else{
+            
+               return redirect("/login");
+          }
+    }
+    
+  }
+
+   function ModHome(){
+    // $id_user = Auth::id();
+    $reservations = reservation::get()-> toArray();
+    //$i;
+    for ($i=0; $i < count($reservations); $i++) { 
+      $club = User::find($reservations[$i]['id_user']);
+      $reservations[$i]['id_user'] = $club->name;
+    }
+    //dd($reservations);
+    
+    
+    return view('ModHome') -> with('reservations', $reservations);
+  }
+
+
 }

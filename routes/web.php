@@ -31,11 +31,19 @@ Route::get('/Clublogin', 'UserController@ClubLogin');
 
 Route::get('/ClubHome', 'UserController@ClubHome');
 
+Route::get('/Modlogin', 'UserController@ModLogin');
+
+Route::get('/ModHome', 'UserController@ModHome');
+
 Route::get('/rooms', 'RoomController@showEmptyRooms');
 
 Route::get('/reservations/create', 'ReservationController@create');
 
 Route::post('/reservations/{dateStart}/{dateFinish}/{id_room}/store', 'ReservationController@store');
+
+Route::post('/reservations/{id_reservation}/approve', 'ReservationController@approve');
+
+Route::post('/reservations/{id_reservation}/reject', 'ReservationController@reject');
 
 Route::get('/reservations/myReservations', 'ReservationController@indexMyResevations');
 
