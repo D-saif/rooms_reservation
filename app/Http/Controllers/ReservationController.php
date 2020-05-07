@@ -30,13 +30,18 @@ class ReservationController extends Controller
               // created_at
               // updated_at
               
-      $id_room = Request('id_room') ;
+      $id_room = Request('id_room');
+
       $id_user = Auth::id();
-      
-      $data = array('id_room' => $id_room, 'id_user' => $id_user , 'date_time_start' => $dateStart,'date_time_finish' => $dateFinish);
+
+      $data = array('id_room' => $id_room, 
+                    'id_user' => $id_user,
+                    'date_time_start' => $dateStart,
+                    'date_time_finish' => $dateFinish,
+                    'created_at' => date('Y-m-d H:i:s'));
       //dd($data);
       DB::table('reservations')->insert($data);
-      return redirect('/ClubHome')->with('msg','salle a ete reserve avec succces');
+      return redirect('/ClubHome');
     }
 
     function indexMyResevations()

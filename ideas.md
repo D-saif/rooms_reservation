@@ -13,7 +13,7 @@ ROOMS RESERVATION
       -log in(done)
       -accept reservations(done)
       -reject reservations(done)
-      -see all reservations
+      -see all reservations(done)
       -see all empty rooms
       -see accepted reservations(done)
       -see rejected reservations(done)
@@ -24,4 +24,4 @@ ROOMS RESERVATION
       -see my personal reservations(done)
       -see all empty rooms(done)
       -see all empty rooms in a given date(done)
-      -see when a given room is available
+      -see when a given room is occupied(done)
