@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use Auth;
 use DB;
 use App\reservation;
+use App\room;
 use Controllers\ReservationController;
 class UserController extends Controller
 {
@@ -67,7 +68,7 @@ class UserController extends Controller
     //dd('test');
     if (Auth::check()) {
           //dd('test');
-          return redirect('/ClubHome');
+          return view('/ClubHome');
     
     } else {
 
@@ -88,7 +89,9 @@ class UserController extends Controller
   function ClubHome(){
     $id_user = Auth::id();
     $reservations = reservation::where('id_user',$id_user)->get();
-    return view('ClubHome')->with('reservations',$reservations);
+    $rooms = room::all('id_room');
+    
+    return view('ClubHome')->with('reservations',$reservations)->with('rooms',$rooms);
   }
 
 

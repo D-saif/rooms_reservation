@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\room;
+use App\reservation;
 use DB;
 use Auth;
 class RoomController extends Controller
@@ -70,7 +71,14 @@ class RoomController extends Controller
 
     }
 
-    function index(){
-      dd("hello index is here");
+    function availability(){
+      //dd("hello availability is here");
+
+      $occupied_time = reservation::where("id_room" , request('room'))
+                       ->where('is_approved' , 1)
+                       -> select('date_time_start','date_time_finish')
+                       ->get();
+      //dd($occupied_time);
+      return view('availability')-> with('occupied_time' , $occupied_time)->with('id_room' , request('room'));
     }
 }

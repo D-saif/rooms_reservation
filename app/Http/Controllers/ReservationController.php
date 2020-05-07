@@ -79,6 +79,7 @@ class ReservationController extends Controller
                 ->where('date_time_finish','>=',$dateFinish)
                 //->where('is_approved',0)
                 ->where('id_room',$id_room)
+                ->where('id_reservation','<>',$id_reservation)
                 ->select('id_reservation')
                 ->get();
       //dump($auto_rejected_res);dd(reservation::get());

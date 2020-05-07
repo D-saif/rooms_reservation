@@ -18,10 +18,25 @@
       <input type="datetime-local" name="reservation">
       <input  type="submit" name="button1" value="search">
     </form> -->
+
     <br>
     <h4>Vous pouvez ajouter une reservation:</h4>
     <form method="get " action="/reservations/create">
-      <button class="button button-primary">Ajouter</button>
+      <button class="btn btn-primary">Ajouter</button>
+    </form>
+
+
+    <br>
+    <h4>Vous pouvez chercher la disponibilité d'une salle:</h4>
+    <form method="get " action="/rooms/availability">
+
+        <select  name="room">
+          @foreach($rooms as $room)
+              <option name='room' value="{{$room->id_room}}">{{ $room->id_room }}</option>
+          @endforeach
+        </select>
+
+        <button class="btn btn-primary">chercher</button>
     </form>
     
     

@@ -37,6 +37,8 @@ Route::get('/ModHome', 'UserController@ModHome');
 
 Route::get('/rooms', 'RoomController@showEmptyRooms');
 
+Route::get('/rooms/availability', 'RoomController@availability');
+
 Route::get('/reservations/create', 'ReservationController@create');
 
 Route::post('/reservations/{dateStart}/{dateFinish}/{id_room}/store', 'ReservationController@store');
