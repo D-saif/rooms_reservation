@@ -22,6 +22,7 @@
     <br>
     <h4>Vous pouvez ajouter une reservation:</h4>
     <form method="get " action="/reservations/create">
+      @csrf
       <button class="btn btn-primary">Ajouter</button>
     </form>
 
@@ -29,7 +30,7 @@
     <br>
     <h4>Vous pouvez chercher la disponibilité d'une salle:</h4>
     <form method="get " action="/rooms/availability">
-
+        @csrf
         <select  name="room">
           @foreach($rooms as $room)
               <option name='room' value="{{$room->id_room}}">{{ $room->id_room }}</option>

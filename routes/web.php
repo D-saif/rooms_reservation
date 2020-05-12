@@ -19,35 +19,50 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-
-Route::post('/rooms', 'RoomController@store');
-
-Route::post('/clubs', 'UserController@storeClub');
-
-Route::post('/mods', 'UserController@storeMod');
 
 Route::get('/Clublogin', 'UserController@ClubLogin');
 
-Route::get('/ClubHome', 'UserController@ClubHome');
-
 Route::get('/Modlogin', 'UserController@ModLogin');
 
-Route::get('/ModHome', 'UserController@ModHome');
 
-Route::get('/rooms', 'RoomController@showEmptyRooms');
+Route::middleware('auth','SuperAdminCheck')->group(function () {
+	// super admin routes 'superAdminAuth'
+		Route::get('/home', 'HomeController@index')->name('home');//->middleware('SuperAdminCheck');
 
-Route::get('/rooms/availability', 'RoomController@availability');
+		Route::post('/rooms', 'RoomController@store');
 
-Route::get('/reservations/create', 'ReservationController@create');
+		Route::post('/clubs', 'UserController@storeClub');
 
-Route::post('/reservations/{dateStart}/{dateFinish}/{id_room}/store', 'ReservationController@store');
+		Route::post('/mods', 'UserController@storeMod');
+});
+		
 
-Route::post('/reservations/{id_reservation}/approve', 'ReservationController@approve');
+Route::middleware('auth','ModCheck')->group(function () {
+ 	//mod routes
+		Route::get('/ModHome', 'UserController@ModHome');
+		
+		Route::post('/reservations/{id_reservation}/approve', 'ReservationController@approve');
 
-Route::post('/reservations/{id_reservation}/reject', 'ReservationController@reject');
+		Route::post('/reservations/{id_reservation}/reject', 'ReservationController@reject');
+});
 
-Route::get('/reservations/myReservations', 'ReservationController@indexMyResevations');
+
+Route::middleware('auth','ClubCheck')->group(function () {
+
+	// club routes
+		Route::get('/ClubHome', 'UserController@ClubHome');
+
+		Route::get('/rooms', 'RoomController@showEmptyRooms');
+
+		Route::get('/rooms/availability', 'RoomController@availability');
+
+		Route::get('/reservations/create', 'ReservationController@create');
+
+		Route::post('/reservations/{dateStart}/{dateFinish}/{id_room}/store', 'ReservationController@store');
+
+ 		Route::get('/reservations/myReservations', 'ReservationController@indexMyResevations');
+});
+
 
 
 // Route::get('/rooms', 'RoomController@index');
