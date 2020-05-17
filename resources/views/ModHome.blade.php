@@ -38,7 +38,7 @@
 
 			          <form action="/reservations/{{ $reservation['id_reservation'] }}/reject" method="POST">
 			          	@csrf
-			          	<th><button class="btn btn-danger" type="submit" name="reject" value="reserve">reject</button></th>
+			          	<th><button class="btn btn-danger" type="submit" name="reject" value="reserve">rejeter</button></th>
 
 		          </form>
 

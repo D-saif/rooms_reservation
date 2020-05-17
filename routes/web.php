@@ -24,6 +24,7 @@ Route::get('/Clublogin', 'UserController@ClubLogin');
 
 Route::get('/Modlogin', 'UserController@ModLogin');
 
+Route::get('/Home', 'HomeController@Home');//->middleware('auth');
 
 Route::middleware('auth','SuperAdminCheck')->group(function () {
 	// super admin routes 'superAdminAuth'
