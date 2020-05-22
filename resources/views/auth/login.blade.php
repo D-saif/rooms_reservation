@@ -1,8 +1,8 @@
 @extends('layouts.app')
-
 @section('content')
 
-<div class="container">
+
+<div class="container" >
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -17,7 +17,7 @@
                 </div>
 
                 <div class="card-body card-body-costum">
-                    <form method="POST" action="{{ route('login') }}">
+                    <form method="POST" action="{{ route('login') }}" >
                         @csrf
 
                         <div class="form-group row">
@@ -216,3 +216,4 @@
     </div>
 </div>
 @endsection
+<!-- <script src=" /layouts/showform.js"></script> -->

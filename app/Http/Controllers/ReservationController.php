@@ -29,7 +29,8 @@ class ReservationController extends Controller
               // is_approved
               // created_at
               // updated_at
-              
+      
+      request('file')->store('files');    
       $id_room = Request('id_room');
 
       $id_user = Auth::id();

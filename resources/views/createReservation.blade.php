@@ -13,7 +13,7 @@
 
 	                <div class="card-body" >
 
-	                    <form method="get" action="/rooms">
+	                    <form method="get" action="/rooms" >
 	                        @csrf
 	                       	<!-- DATETIME PICKER -->
 	                       		
@@ -48,13 +48,14 @@
 	                        </div>
 	                        
 	                        
-	                        <div class="form-group row">
-	                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirmer le mot de passe') }}</label>
+	                        <!-- <div class="form-group row">
+	                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('La demande') }}</label>
 
 	                            <div class="col-md-6">
-	                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+	                               <input type="file" name="file">
 	                            </div>
-	                        </div>
+
+	                        </div> -->
 
 	                        <div class="form-group row mb-0">
 	                            <div class="col-md-6 offset-md-4">

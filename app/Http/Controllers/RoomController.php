@@ -29,7 +29,6 @@ class RoomController extends Controller
 
     function showEmptyRooms(Request $req1)
     {
-    
 
     $dateStart = $req1->input('dateStart');
     $dateFinish = $req1->input('dateFinish');
@@ -58,18 +57,14 @@ class RoomController extends Controller
 
       //get all empty rooms (rooms - reserved rooms)
       $emptyRooms= $rooms->diff($reservedRooms);
-
-      // var_dump($rooms);echo "<br><br><br>";
-      // var_dump($reservedRooms);echo "<br><br><br>";
-      // dd($emptyRooms);
-      //reservationData = array("dateStart"=>$dateStart, "dateFinish"=>$dateFinish,);
-
       
       return view('showEmptyRooms')->with('available_rooms',$emptyRooms)
                                    ->with('dateStart' , $dateStart)
                                    ->with('dateFinish' , $dateFinish);
+                                   
 
     }
+
 
     function availability(){
       //dd("hello availability is here");
@@ -79,6 +74,7 @@ class RoomController extends Controller
                        -> select('date_time_start','date_time_finish')
                        ->get();
       //dd($occupied_time);
-      return view('availability')-> with('occupied_time' , $occupied_time)->with('id_room' , request('room'));
+      return view('availability')-> with('occupied_time' , $occupied_time)
+                                 ->with('id_room' , request('room'));
     }
 }
