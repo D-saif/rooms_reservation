@@ -20,6 +20,7 @@ class CreateReservationsTable extends Migration
           $table->DateTime('date_time_start');
           $table->dateTime('date_time_finish');
           $table->integer('is_approved')->default(0);
+          $table->string('file');
           $table->timestamps();
           //should be fixed
           $table->foreign('id_user')

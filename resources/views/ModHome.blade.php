@@ -11,6 +11,7 @@
           <th><b>date debut</b></th>
           <th><b>date fin</b></th>
           <th><b>Etat</b></th>
+          <th><b>Demande</b></th>
           <th><b>creer a</b></th>
           <th><b>modifiée a</b></th>
           <th></th><th></th>
@@ -25,6 +26,13 @@
 			          <th>{{$reservation ['date_time_start'] }}</th>
 			          <th>{{$reservation ['date_time_finish'] }}</th>
 			          <th>{{$reservation ['is_approved']}}</th>
+
+                <form id = "showFile" method = "get" action="showFile/{{$reservation ['file']}}/show">
+
+                    <th>  <a onclick = "document.getElementById('showFile').submit();" href="#"> {{$reservation ['file']}} </a>  </th>
+
+                </form>
+
 			          <th>{{$reservation ['created_at'] ?? "_"}}</th>
 			          <th>{{$reservation ['updated_at'] ?? "_"}}</th>
 
@@ -126,7 +134,7 @@
     			          <th>{{$reservation ['created_at'] ?? "_"}}</th>
     			          <th>{{$reservation ['updated_at'] ?? "_"}}</th>
 
-    			          <form action="/reservations/{{ $reservation['id_reservation'] }}/approve" method="POST">
+    			         <!--  <form action="/reservations/{{ $reservation['id_reservation'] }}/approve" method="POST">
     			          	@csrf
     			          	<th>
     			          		<button class="btn btn-primary" type="submit" name="approve" value="reserve">approuver</button>
@@ -138,7 +146,7 @@
     			          	@csrf
     			          	<th><button class="btn btn-danger" type="submit" name="reject" value="reserve">reject</button></th>
 
-    		          </form>
+    		          </form> -->
 
     		        </tr>
     	        @endif

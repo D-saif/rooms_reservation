@@ -45,6 +45,9 @@ Route::middleware('auth','ModCheck')->group(function () {
 		Route::post('/reservations/{id_reservation}/approve', 'ReservationController@approve');
 
 		Route::post('/reservations/{id_reservation}/reject', 'ReservationController@reject');
+
+		Route::get('/showFile/{fileName}/show', 'FileController@show');
+
 });
 
 

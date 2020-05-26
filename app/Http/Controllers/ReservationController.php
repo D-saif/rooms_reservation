@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Auth;
 use DB;
 use App\reservation;
+use App\User;
 class ReservationController extends Controller
 {
     function create(){
@@ -21,16 +22,30 @@ class ReservationController extends Controller
               /// dateFinish
               //dd($dateFinish);
               /// id_reservation
-              
               ///id_room
               //dd(Request('id_room'));
               ///id_user
-              //dd(Auth::id());
+              // dd(Auth::id());
               // is_approved
+              /// file
               // created_at
               // updated_at
+
+
       
-      request('file')->store('files');    
+
+      
+      ///generate the name of the file (random string)
+      // do{
+      //   $file_name = bin2hex(random_bytes(5));
+      //   $file_exists = reservation::where('file',$file_name)->get();
+      // } while (count($file_exists) != 0);
+      // $file_name = Auth::user()->name . $file_name;
+
+
+      ////generate the name of the file
+      $file_name = Auth::user()->name . date("Y-m-d_h:i:sa") ;
+      request('file')->storeAs('files',$file_name);    
       $id_room = Request('id_room');
 
       $id_user = Auth::id();
@@ -39,6 +54,7 @@ class ReservationController extends Controller
                     'id_user' => $id_user,
                     'date_time_start' => $dateStart,
                     'date_time_finish' => $dateFinish,
+                    'file' => $file_name,
                     'created_at' => date('Y-m-d H:i:s'));
       //dd($data);
       DB::table('reservations')->insert($data);
